@@ -1,0 +1,1 @@
+python send_UDP.py 500 10.0.11.248 Dev2 range(6) FT14508.cal

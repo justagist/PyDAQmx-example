@@ -115,7 +115,7 @@ if __name__== "__main__":
 		
 		
 		#print("Sample Raw DATA: ", str(raw_data[0])[1:-1])
-		sdata = ",".join(map(str,data) + ['%.9f\n'%(now,)]) 
+		sdata = " ".join(map(str,data) + ['%.9f\n'%(now,)]) 
 		#print("Sample Calbtd DATA: ", sdata)
 		sock.sendto(sdata, (UDP_IP, UDP_PORT))
 		sample_counter += 1	
@@ -127,7 +127,7 @@ if __name__== "__main__":
 		avg_delta_time = avg_delta_time*0.3 + delta_time*0.7
 		if elapsed_time >= sampleTime:
 			
-			sys.stdout.write("Current Loop Frequency: %d Hz DeltaTime: %0.9lf Freq %0.2lf\r"%(sample_counter,avg_delta_time,1.0/avg_delta_time))
+			sys.stdout.write("Current Loop Frequency: %d Hz DeltaTime: %0.9lf Freq %0.2lf\r"%(sample_counter,avg_delta_time,1.0/(avg_delta_time+0.0000001)))
 			sample_counter = 0
 			start = wt.time()
 
